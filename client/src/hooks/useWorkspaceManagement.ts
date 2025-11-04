@@ -13,11 +13,17 @@ const workspaceApi = {
         id: "1",
         name: "Personal Workspace",
         description: "My personal projects",
-        owner: { id: "1", userName: "user", email: "user@example.com", createdAt: "", updatedAt: "" },
+        owner: {
+          id: "1",
+          userName: "user",
+          email: "user@example.com",
+          createdAt: "",
+          updatedAt: "",
+        },
         role: "Owner",
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-      }
+      },
     ];
   },
   create: async (data: CreateWorkspaceData): Promise<Workspace> => {
@@ -25,7 +31,13 @@ const workspaceApi = {
       id: Date.now().toString(),
       name: data.name,
       description: data.description,
-      owner: { id: "1", userName: "user", email: "user@example.com", createdAt: "", updatedAt: "" },
+      owner: {
+        id: "1",
+        userName: "user",
+        email: "user@example.com",
+        createdAt: "",
+        updatedAt: "",
+      },
       role: "Owner",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
