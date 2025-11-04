@@ -1,0 +1,23 @@
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export function formatError(error: unknown): string {
+  if (typeof error === "string") return error;
+  if (
+    error &&
+    typeof error === "object" &&
+    "message" in error &&
+    typeof error.message === "string"
+  ) {
+    return error.message;
+  }
+  if (error && typeof error === "object" && "response" in error) {
+    const response = error.response as any;
+    if (response?.data?.message) return response.data.message;
+  }
+  return "An unexpected error occurred";
+}
